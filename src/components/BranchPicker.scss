@@ -1,0 +1,22 @@
+.BranchPicker {
+
+  .Label {
+    margin-bottom: 4px;
+  }
+
+  .BranchList {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .Branch {
+    padding: 2px;
+    margin: 2px;
+    background: aliceblue;
+    cursor: pointer;
+
+    &.picked {
+      background: lightgreen;
+    }
+  }
+}
