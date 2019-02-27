@@ -8,6 +8,7 @@ import pull from 'lodash/pull';
 import {Branch} from "./models/Branch";
 import {Dictionary} from 'lodash';
 import {CIRCLE_CI_API_KEY, PROJECT_NAME} from "./constants";
+import {LoginForm} from "./components/LoginForm.component";
 
 interface Props {
 }
@@ -67,11 +68,14 @@ class App extends Component<Props, State> {
   render() {
     return (
       <div className="App">
-        <BranchPicker
-          branchNames={this.state.branchNames}
-          trackedBranches={this.state.trackedBranches}
-          handleBranchClick={(branchName: string) => this.handleBranchClick(branchName)}
-        />
+        <div className="container">
+          <LoginForm/>
+          <BranchPicker
+            branchNames={this.state.branchNames}
+            trackedBranches={this.state.trackedBranches}
+            handleBranchClick={(branchName: string) => this.handleBranchClick(branchName)}
+          />
+        </div>
       </div>
     );
   }
