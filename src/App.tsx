@@ -7,6 +7,7 @@ import includes from 'lodash/includes';
 import pull from 'lodash/pull';
 import {Branch} from "./models/Branch";
 import {Dictionary} from 'lodash';
+import {CIRCLE_CI_API_KEY, PROJECT_NAME} from "./constants";
 
 interface Props {
 }
@@ -26,10 +27,10 @@ class App extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    const circleCIService = new CircleCIService('wolololo');
+    const circleCIService = new CircleCIService(CIRCLE_CI_API_KEY);
     const branchService = new BranchService(circleCIService);
 
-    branchService.branches('wolololo', ['master', 'release/0.39.6'])
+    branchService.branches(PROJECT_NAME, ['master', 'release/0.39.6'])
     .then((branches: Dictionary<Branch>) => {
       this.setState({
         branches: branches
@@ -40,7 +41,7 @@ class App extends Component<Props, State> {
       console.log(err);
     });
 
-    branchService.branchNames('wolololo')
+    branchService.branchNames(PROJECT_NAME)
     .then((branchNames: string[]) => {
       this.setState({
         branchNames: branchNames
