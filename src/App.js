@@ -23,6 +23,9 @@ class App extends Component {
           branches: branches
         });
         console.log(branches);
+      })
+      .catch(err => {
+        console.log(err);
       });
 
     branchService.branchNames('optiondriver-api')
@@ -30,6 +33,9 @@ class App extends Component {
         this.setState({
           branchNames: branchNames
         });
+      })
+      .catch(err => {
+        console.log(err);
       });
   }
 
