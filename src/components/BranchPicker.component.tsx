@@ -1,9 +1,15 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './BranchPicker.scss'
 import includes from 'lodash/includes';
 
-class BranchPicker extends Component {
-  getBranchClassName(branchName) {
+interface Props {
+  branchNames: string[];
+  trackedBranches: string[];
+  handleBranchClick: (branchName: string) => void;
+}
+
+export class BranchPicker extends Component<Props> {
+  getBranchClassName(branchName: string) {
     return 'Branch' + (includes(this.props.trackedBranches, branchName) ? ' picked' : '');
   }
 
@@ -21,8 +27,4 @@ class BranchPicker extends Component {
       </div>
     );
   }
-}
-
-export {
-  BranchPicker
 }
