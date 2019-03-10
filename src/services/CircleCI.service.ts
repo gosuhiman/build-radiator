@@ -1,6 +1,6 @@
 import {Project} from "../models/Project";
 
-class CircleCIService {
+export class CircleCIService {
   baseUrl: string = 'https://circleci.com/api/v1.1';
   apiKey: string;
 
@@ -17,7 +17,3 @@ class CircleCIService {
   }
 
 }
-
-export {
-  CircleCIService
-};

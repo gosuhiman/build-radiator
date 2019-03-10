@@ -12,7 +12,6 @@ interface State {
 }
 
 class App extends Component<Props, State> {
-
   render() {
     return (
       <Router history={createBrowserHistory()}>
